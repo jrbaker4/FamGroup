@@ -45,11 +45,13 @@ class Fam_Group():
         return self.fg_num != other.fg_num
 
     def add_member(self, member, summit_college, update_statistics=True):
+        member.fg_num = self.fg_num
         self.members.append(member)
         if update_statistics:
             self.update_statistics(summit_college)
 
     def remove_member(self, old_member, summit_college, update_statistics=True):
+        #old_member.fg_num = -1
         self.members.remove(old_member)
         if update_statistics:
             self.update_statistics(summit_college)
@@ -80,6 +82,7 @@ class Fam_Group():
             self.connection_cost = cuts/len(self.members)
         else:
             self.connection_cost = 0
+
     def update_average_age(self):
         age_sum = 0
         for student in self.members:
@@ -118,21 +121,21 @@ class Summit_College():
             fg = None
             if student not in self.fam_groups:
                 new_fam_group = Fam_Group(fg_num=student.fg_num, color = pygame.Color(  np.random.randint(0,255), np.random.randint(0,255), np.random.randint(0,255)), members=[])
-                student.xpos = np.random.normal(new_fam_group.centroid[0], .1)
-                student.ypos = np.random.normal(new_fam_group.centroid[1], .1)
+                student.xpos =  min(abs(np.random.normal(new_fam_group.centroid[0], .1)), .95)
+                student.ypos =  min(abs(np.random.normal(new_fam_group.centroid[1], .1)), .95)
                 new_fam_group.add_member(student, self, False)
                 self.fam_groups[student.fg_num] = new_fam_group
             else:
                 fg = self.fam_groups[self.fam_groups.index(student)]
-                student.xpos = np.random.normal(fg.centroid[0], .1)
-                student.ypos = np.random.normal(fg.centroid[1], .1)
+                student.xpos = min(abs(np.random.normal(fg.centroid[0], .1)), .95)
+                student.ypos = min(abs(np.random.normal(fg.centroid[1], .1)), .95)
                 fg.add_member(student, self, False)
         #calc all statistics for the FGs
         for fg in self.fam_groups:
             fg.update_statistics(self)
         
     def get_all_students(self):
-        return self.node_dict.keys
+        return self.node_dict.keys()
     
     def gather_fam_group_stats(self):
         fg_stats = {}

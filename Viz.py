@@ -31,10 +31,13 @@ def text_objects(text, font):
     return textSurface, textSurface.get_rect()
 
 def display_student_info_rect(screen, box_width, box_height):
-    pygame.draw.rect(screen, BLACK, pygame.Rect((screen.get_width()/2)-box_width/2,0,box_width, box_height), 2)
+    pygame.draw.rect(screen, BLACK, pygame.Rect((screen.get_width()/2)-box_width/2, 0,box_width, box_height), 2)
+
+def display_cost_rect(screen, box_width, box_height):
+    pygame.draw.rect(screen, BLACK, pygame.Rect(0, screen.get_height() - 250, box_width, box_height), 2)
 
 def clear_student_info(screen, box_width, box_height):
-    screen.fill(WHITE, pygame.Rect((screen.get_width()/2)-box_width/2,0,box_width, box_height))
+    screen.fill(WHITE, pygame.Rect((screen.get_width()/2)-box_width/2, 0, box_width, box_height))
 
 def centered_text_display(text, screen, x, y, font_size):
     largeText = pygame.font.Font('freesansbold.ttf',font_size)
@@ -56,6 +59,13 @@ def display_student_info(student, screen):
     clear_student_info(screen, box_width, box_height)
     display_student_info_rect(screen, box_width, box_height)
     centered_text_display(student.name, screen, screen.get_width()/2, box_height/2, 20)
+
+def display_total_cost(screen, graph):
+    box_height = 50
+    box_width = 300
+    display_cost_rect(screen, box_width, box_height)
+    cost = calculate_total_cost(graph)
+    centered_text_display(str(cost), screen, box_width/2, box_height/2, 20)
 
 def convert_fg_stats_to_text(fg_stats):
     text_blocks = []
@@ -127,18 +137,25 @@ def main_display(graph):
                     active_student.xpos = newx_pos/screen.get_width()
                     active_student.ypos = newy_pos/screen.get_height()
                 elif button==3: #Change Fam Group
+                    
                     old_fam_group = graph.fam_groups[active_student.fg_num]
                     old_fam_group.remove_member(active_student, graph)
+                    fam_groups_to_update = []
+                    for friend in graph.node_dict[active_student]:
+                        fam_groups_to_update.append(friend.fg_num)
                     active_student.fg_num = (active_student.fg_num + 1) % len(graph.fam_groups)
                     new_fam_group = graph.fam_groups[active_student.fg_num]
                     new_fam_group.add_member(active_student, graph)
+
+                    for fg in set(fam_groups_to_update):
+                        graph.fam_groups[fg].update_connection_loss_per_student(graph)
+
                 drawing=False
                 display_graph(screen, graph)
                 display_fam_group_stats(screen, graph)
+                display_total_cost(screen, graph)
         display_student_info(hover_student, screen)
                 
-
-
 graph = parse_spread_sheet_create_graph('students.csv', 'conn_matrix.csv')
 summit_college = Summit_College(graph)
 
