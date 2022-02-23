@@ -35,6 +35,7 @@ def display_student_info_rect(screen, box_width, box_height):
 
 def display_cost_rect(screen, box_width, box_height):
     pygame.draw.rect(screen, BLACK, pygame.Rect(0, screen.get_height() - 250, box_width, box_height), 2)
+    pygame.display.update()
 
 def clear_student_info(screen, box_width, box_height):
     screen.fill(WHITE, pygame.Rect((screen.get_width()/2)-box_width/2, 0, box_width, box_height))
@@ -62,10 +63,12 @@ def display_student_info(student, screen):
 
 def display_total_cost(screen, graph):
     box_height = 50
-    box_width = 300
+    box_width = 800
     display_cost_rect(screen, box_width, box_height)
-    cost = calculate_total_cost(graph)
-    centered_text_display(str(cost), screen, box_width/2, box_height/2, 20)
+    #centered_text_display("Total Cost", screen, box_width/2, screen.get_height() - 260, 20)
+    total_cost, cut_cost, gender_cost, number_of_members_cost, maturity_cost = calculate_total_cost(graph)
+    cost_string = "Total Cost: " + str(round(total_cost,2)) + ", Cut Cost: " + str(round(cut_cost,2)) + ", Gender Cost: " + str(round(gender_cost,2)) + ", Numbers Cost: " + str(round(number_of_members_cost,2))+ ", Maturity Cost: " + str(round(maturity_cost,2))
+    centered_text_display(cost_string, screen, box_width/2, screen.get_height() - (250 - box_height/2), 15)
 
 def convert_fg_stats_to_text(fg_stats):
     text_blocks = []
