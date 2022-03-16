@@ -13,6 +13,7 @@ def calculate_total_cost(summit_college):
     D=1
     total_maturity_cost = maturity_cost(summit_college)
     
+    #TODO AGE COST
     total_cost = A*total_cut_cost + B*total_gender_cost + C*number_of_members_cost + D*total_maturity_cost
     
     return total_cost, A*total_cut_cost, B*total_gender_cost, C*number_of_members_cost, D*total_maturity_cost
