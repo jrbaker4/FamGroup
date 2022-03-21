@@ -115,20 +115,20 @@ class Summit_College():
         #Create list of appropriate size to hold all the fam groups
         if len(fam_groups) == 0:
             self.fam_groups = [None]*num_fgs
-        #Creat fam groups and add students to correct fam groups
+        #Create fam groups and add students to correct fam groups
         for student in self.node_dict.keys():
             new_fam_group = None
             fg = None
             if student not in self.fam_groups:
                 new_fam_group = Fam_Group(fg_num=student.fg_num, color = pygame.Color(  np.random.randint(0,255), np.random.randint(0,255), np.random.randint(0,255)), members=[])
-                student.xpos =  min(abs(np.random.normal(new_fam_group.centroid[0], .1)), .95)
-                student.ypos =  min(abs(np.random.normal(new_fam_group.centroid[1], .1)), .95)
+                student.xpos =  min(abs(np.random.normal(new_fam_group.centroid[0], .05)), .95)
+                student.ypos =  min(abs(np.random.normal(new_fam_group.centroid[1], .05)), .8)
                 new_fam_group.add_member(student, self, False)
                 self.fam_groups[student.fg_num] = new_fam_group
             else:
                 fg = self.fam_groups[self.fam_groups.index(student)]
-                student.xpos = min(abs(np.random.normal(fg.centroid[0], .1)), .95)
-                student.ypos = min(abs(np.random.normal(fg.centroid[1], .1)), .95)
+                student.xpos = min(abs(np.random.normal(fg.centroid[0], .05)), .95)
+                student.ypos = min(abs(np.random.normal(fg.centroid[1], .05)), .8)
                 fg.add_member(student, self, False)
         #calc all statistics for the FGs
         for fg in self.fam_groups:

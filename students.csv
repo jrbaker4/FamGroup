@@ -1,0 +1,109 @@
+,id,name,year,sc_leader,maturity,fg_num,Female,discipler
+0,0,Kyle Browning,5,True,-1,6,False,John Baker
+1,1,Nicole Tiu,4,True,-1,0,True,Nicole Tiu
+2,2,Ethan Clonch,1,False,-1,0,False,Jared Clark
+3,3,Jacob Wood,1,False,-1,0,False,Andrew Baker
+4,4,Jacob Gibbs,1,False,-1,0,False,Andrew Baker
+5,5,John Stone,2,False,-1,0,False,Noah Tursam
+6,6,Peyton Grant,2,True,-1,2,True,Lisa Miller
+7,7,Natalie Emerson,2,False,-1,2,True,Peyton Grant
+8,8,Nick Violissi,4,True,-1,3,False,Danny Scrudato
+9,9,Taylor Cosey,3,True,-1,2,True,Lisa Miller
+10,10,Jeddy Waldon,3,True,-1,0,False,John Baker
+11,11,Abby Haydon,4,True,-1,3,True,Mara Harris
+12,12,Blake Sullivan,2,True,-1,5,False,Michael Smith
+13,13,Trey Murray,2,True,-1,6,False,Mitchell Piechocki
+14,14,Kylie Dunbar,2,True,-1,6,True,Claire Mansfield
+15,15,Thomas Dalonzo-Baker,1,False,-1,5,False,Blake Sullivan
+16,16,allie saffioti,2,False,-1,3,True,Abby Haydon
+17,17,Aidan Fleming,2,True,-1,8,True,Mary Ella Slabach
+18,18,Gabrielle Hollifield,3,False,-1,3,True,Abby Haydon
+19,19,abby grimes,2,True,-1,6,True,Claire Mansfield
+20,20,Michael Entwistle,3,True,-1,0,False,John Baker
+21,21,Michael Hernandez,4,True,-1,8,False,Michael Hernendez
+22,22,Nicole Aswell,3,True,-1,2,True,Lisa Miller
+23,23,Jessica Church ,1,False,-1,2,True,Taylor Casey
+24,24,Kathryn Lu,1,False,-1,2,True,Taylor Casey
+25,25,Ally Tharrington,1,False,-1,6,True,Abby Grimes
+26,26,Cheyenne,3,False,-1,2,True,Peyton Grant
+27,27,Jacob  Leitch ,4,True,-1,0,False,John Baker
+28,28,Tyler Rhodes,2,True,-1,5,False,Michael Smith
+29,29,Micah Salmon,1,False,-1,5,False,Blake Sullivan
+30,30,Jared Clark,2,True,-1,0,False,John Baker
+31,31,Abby nieman ,2,False,-1,2,True,Nicole Aswell
+32,32,Asher Hancock,1,False,-1,3,False,Nick Violissi
+33,33,Elliot Umbarger ,1,False,-1,0,False,Andrew Baker
+34,34,Emma Slabach,3,True,-1,5,True,Cameron Boyd
+35,35,Camden Willis,2,True,-1,5,False,Michael Smith
+36,36,Calvin Ford,1,False,-1,4,False,Kobe Sonbert
+37,37,Rileigh Sevigny,3,True,-1,3,True,Mara Harris
+38,38,Felix Hutchins,1,False,-1,4,False,Kobe Sonbert
+39,39,Tripp Lilly,2,True,-1,6,False,Mitchell Piechocki
+40,40,Zachary Mallol,2,True,-1,2,False,Mikato Leuang
+41,41,Susie Robinson,2,True,-1,7,True,Adah Anderson
+42,42,Leah Mabry,2,True,-1,7,True,Adah Anderson
+43,43,Wyatt Manus,2,False,-1,4,False,Sammy Penninger
+44,44,Sammy Penninger,5,True,-1,4,False,Danny Scrudato
+45,45,Audrey Biller,2,False,-1,6,True,Claire Mansfield
+46,46,Bailie Tew,2,False,-1,2,True,Nicole Aswell
+47,47,Andrew Barfield,3,True,-1,0,False,John Baker
+48,48,Kierra Shook,2,False,-1,8,True,Jordan Taylor
+49,49,Sophia Franzen,2,False,-1,8,True,Jordan Taylor
+50,50,Caleb Yueh,2,False,-1,6,False,Kyle Browning
+51,51,Hayden Key,2,False,-1,8,True,Jordan Taylor
+52,52,Jake Farmer,1,False,-1,1,False,Shalom Kiruba
+53,53,Keigan Coleman,1,False,-1,4,False,Kobe Sonbert
+54,54,Wesley Townsend,3,True,-1,1,False,Addison Weaver
+55,55,Alex Evans,1,False,-1,2,False,Jackson Toburen
+56,56,Lewis Lyndon,1,False,-1,2,False,Jackson Toburen
+57,57,Kobe Sonbert ,5,True,-1,4,False,Danny Scrudato
+58,58,Bryce Gunter,3,False,-1,0,False,Jacob Leitch
+59,59,Amear Moftah,1,False,-1,1,False,Shalom Kiruba
+60,60,Isaac Cox,1,True,-1,2,False,Addison Weaver
+61,61,Noah Laney,2,False,-1,2,False,Isaac Cox
+62,62,Jackson Toburen,2,True,-1,2,False,Mikato Leuang
+63,63,Paige ,2,False,-1,2,True,Peyton Grant
+64,64,Andrew Baker,2,True,-1,0,False,John Baker
+65,65,Ella Rocco ,1,False,-1,8,True,Aidan Flemming
+66,66,Keeland Covell,1,False,-1,8,True,Aidan Flemming
+67,67,Emily Taylor,1,False,-1,8,True,Aidan Flemming
+68,68,Max McLain,2,True,-1,8,False,Mitchell Piechocki
+69,69,Julia More,3,False,-1,1,True,Vivian Chen
+70,70,Caroline Foy,3,False,-1,1,True,Vivian Chen
+71,71,lucy huitt,2,False,-1,0,True,Emma Schneider
+72,72,Isa Preston-Crosby,4,False,-1,1,True,Vivian Chen
+73,73,Christian Lackey,1,False,-1,2,False,Landon Gesell
+74,74,Luke Vazzano,1,False,-1,2,False,Landon Gesell
+75,75,Scott Elliott,1,False,-1,0,False,Jeddy Walden
+76,76,Landon Burt,3,False,-1,0,False,Micheal Entwistle
+77,77,Addison Ford,4,False,-1,0,False,Micheal Entwistle
+78,78,Rachel Hansen,1,False,-1,3,True,Judy Bolton
+79,79,Noah Tursam,3,True,-1,0,False,John Baker
+80,80,Luke Caplice,2,True,-1,2,False,Isaac Cox
+81,81,Landon Gesell,2,True,-1,2,False,Mikato Leuang
+82,82,Mary Ella Slabach,5,True,-1,8,True,NOT ON LIST
+83,83,Shalom Kiruba,4,True,-1,1,False,Preston Miller
+84,84,Vivian Chen,4,True,-1,1,True,Austin Baker
+85,85,Meghan Bass,2,True,-1,1,True,Austin Baker
+86,86,Elizabeth Pike,1,False,-1,1,True,Meghan Bass
+87,87,Bekah Pozsonyi ,1,False,-1,1,True,Meghan Bass
+88,88,Colson teal,3,False,-1,1,False,Silas McClure
+89,89,Bethany Carels,1,False,-1,1,True,Meghan Bass
+90,90,Caroline Woods,1,False,-1,1,True,Meghan Bass
+91,91,Laura Newsom ,1,False,-1,1,True,Meghan Bass
+92,92,Tyler Harrell ,3,True,-1,1,False,Addison Weaver
+93,93,Samuel Duncan,1,False,-1,1,False,Tyler Harrel
+94,94,Josh Kendall,1,False,-1,1,False,Tyler Harrel
+95,95,Alex Riesenberg,1,False,-1,1,False,Tyler Harrel
+96,96,John Baker,5,True,-1,0,False,John Baker
+97,97,Will Bumgarner,2,False,-1,1,False,Tyler Harrel
+98,98,Jemima Liteli,4,True,-1,1,True,Nicole Tiu
+99,99,Emma,1,False,-1,1,True,Jemima Liteli
+100,100,Faith Darst,1,False,-1,1,True,Jemima Liteli
+101,101,Cate Harris,1,False,-1,3,True,Rileigh Sevigny
+102,102,Jenna Lucey,4,True,-1,8,True,Mary Ella Slabach
+103,103,Claire Mansfield ,4,True,-1,6,True,Mary Ella Slabach
+104,104,Jordan Taylor,4,True,-1,8,True,Mary Ella Slabach
+105,105,Chelby Pascale,1,False,-1,1,True,Jemima Liteli
+106,106,Katie Cusack ,4,True,-1,6,True,Mary Ella Slabach
+107,107,Joshua Ward,1,False,-1,1,False,Silas McClure

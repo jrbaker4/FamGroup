@@ -1,6 +1,7 @@
 import pandas as pd
 from graph import *
 import warnings
+from ParseResponse import *
 warnings.filterwarnings("ignore", message="divide by zero encountered in log")
 warnings.filterwarnings("ignore", message="invalid value encountered in multiply")
 def calculate_total_cost(summit_college):
@@ -64,14 +65,26 @@ def maturity_cost(summit_college):
         mat_cost += KL_div_score
     return mat_cost
 
-def parse_spread_sheet_create_graph(student_csv_file, conn_matrix_csv):
-    students_df = pd.read_csv(student_csv_file, index_col=0)
-    student_dict = {}
-    for index, student in students_df.iterrows():
-        new_student = Student(index, student['name'],student['year'], bool(student['sc_leader']), student['maturity'], student['fg_num'], bool(student['female']))
-        student_dict[index] = new_student
+def save_student_files(student_dict, conns_df):
+    conns_df.to_csv('conn_mat.csv')
+    students_data = []
+    for student_id in student_dict:
+        student = student_dict[student_id]
+        student_data = [student.id, student.name, student.year, student.sc_leader, student.maturity, student.fg_num, student.female, student.discipler, student.xpos, student.ypos]
+        students_data.append(student_data)
+    student_df = pd.DataFrame(students_data, columns=["id", "name", "year", "sc_leader", "maturity", "fg_num", "Female", "discipler", "x_pos", "y_pos"])
+    student_df.to_csv("students.csv")
 
-    conns_df = pd.read_csv(conn_matrix_csv)
+def parse_spread_sheet_create_graph(survey_file, save_files=False):
+    student_name_dict, friends_dict = parse_spread_sheet_create_dicts(survey_file)
+    matched_students = create_conn_mat(student_name_dict, friends_dict)
+    conns_df = pd.DataFrame(matched_students)
+    #Student dict is a dic where name is the key, we need to change it to index being the key cause I'm too lazy to make better code
+    student_dict = {}
+    for stud in student_name_dict:
+        id = student_name_dict[stud].id
+        student_dict[id] = student_name_dict[stud]
+
     sc_graph = {}
     for indx, row in conns_df.iterrows():
         things_to_add = []
@@ -79,5 +92,8 @@ def parse_spread_sheet_create_graph(student_csv_file, conn_matrix_csv):
             if value == 1:
                 things_to_add.append(student_dict[int(idx)])
         sc_graph[student_dict[int(indx)]] = things_to_add
-    return sc_graph
-#graph = parse_spread_sheet_create_graph('students.csv', 'conn_matrix.csv')
+
+    if save_files:
+        save_student_files(student_dict, conns_df)
+        
+    return sc_graph 

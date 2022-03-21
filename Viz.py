@@ -6,6 +6,8 @@ from numpy.lib.function_base import blackman
 import pygame
 from pygame.locals import *
 import sys
+
+from sqlalchemy import true
 from graph import *
 from Utils import *
 
@@ -56,7 +58,7 @@ def left_text_display(text, screen, x, y, font_size):
 
 def display_student_info(student, screen):
     box_height = 50
-    box_width = 100
+    box_width = 250
     clear_student_info(screen, box_width, box_height)
     display_student_info_rect(screen, box_width, box_height)
     centered_text_display(student.name, screen, screen.get_width()/2, box_height/2, 20)
@@ -107,7 +109,8 @@ def find_nearest_node(mouse_x, mouse_y, graph, screen):
 
 def main_display(graph):
     pygame.init()
-    screen=pygame.display.set_mode([1500, 800])
+    #screen=pygame.display.set_mode([1500, 800])
+    screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
     screen.fill(WHITE)
 
     display_graph(screen, graph)
@@ -116,8 +119,9 @@ def main_display(graph):
     newx_pos = 0
     newy_pos = 0
     drawing = False
+    mainloop = True
     active_student = Student()
-    while True:
+    while mainloop:
         pygame.display.update()
         x, y = pygame.mouse.get_pos()
         hover_student = find_nearest_node(x, y, graph, screen)
@@ -125,6 +129,11 @@ def main_display(graph):
             if event.type == QUIT:
                 pygame.quit()
                 sys.exit()
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    mainloop = False  # Set running to False to end the while loop.
+                    pygame.quit()
+                    sys.exit()
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 button = event.button
                 x, y = pygame.mouse.get_pos()
@@ -159,7 +168,7 @@ def main_display(graph):
                 display_total_cost(screen, graph)
         display_student_info(hover_student, screen)
                 
-graph = parse_spread_sheet_create_graph('students.csv', 'conn_matrix.csv')
+graph = parse_spread_sheet_create_graph("SurveyResponse_3_21.csv", true)
 summit_college = Summit_College(graph)
 
 main_display(summit_college)
