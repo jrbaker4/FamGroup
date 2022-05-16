@@ -124,7 +124,7 @@ class Summit_College():
                 student.xpos =  min(abs(np.random.normal(new_fam_group.centroid[0], .05)), .95)
                 student.ypos =  min(abs(np.random.normal(new_fam_group.centroid[1], .05)), .8)
                 new_fam_group.add_member(student, self, False)
-                self.fam_groups[student.fg_num] = new_fam_group
+                self.fam_groups[student.fg_num -1] = new_fam_group
             else:
                 fg = self.fam_groups[self.fam_groups.index(student)]
                 student.xpos = min(abs(np.random.normal(fg.centroid[0], .05)), .95)

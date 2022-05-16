@@ -139,6 +139,10 @@ def main_display(graph):
                 x, y = pygame.mouse.get_pos()
                 active_student = find_nearest_node(x, y, graph, screen)
                 drawing=True
+            elif event.type == pygame.KEYDOWN:
+                keys = pygame.key.get_pressed()
+                if keys[pygame.K_p] and (keys[pygame.K_LCTRL] or keys[pygame.K_RCTRL]):
+                    print_reports(graph)
             elif event.type == MOUSEMOTION:
                 if drawing:
                     newx_pos, newy_pos =  pygame.mouse.get_pos()
@@ -168,7 +172,8 @@ def main_display(graph):
                 display_total_cost(screen, graph)
         display_student_info(hover_student, screen)
                 
-graph = parse_spread_sheet_create_graph("SurveyResponse_3_21.csv", true)
+graph = parse_survey_create_graph("SurveyResponse_3_21.csv", true)
+#graph = parse_files_create_graph()
 summit_college = Summit_College(graph)
-
+#print_report(summit_college)
 main_display(summit_college)

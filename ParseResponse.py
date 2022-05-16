@@ -19,7 +19,7 @@ def parse_spread_sheet_create_dicts(student_csv_file):
     students_df = pd.read_csv(student_csv_file, index_col=False)
     student_dict = {}
     friends_dict = {}
-
+    idxy = 0
     for index, student in students_df.iterrows():
         #Create Student objects
         name = student['Name']
@@ -28,13 +28,17 @@ def parse_spread_sheet_create_dicts(student_csv_file):
             year = 5
         year = int(year)
         sc_leader = (student['Do you lead a D-Group?'] == "Yes")
-        fg_num = FG_MAP[student['Who are your family group leaders?']]
-        new_student = Student(index, name=name, year=year, sc_leader=sc_leader, maturity = -1, fg_num=fg_num, female=(student['Gender'] == "Female"), discipler=student['Who is your D-Group Leader? If you have multiple, only choose one.'])
+        fg_num = int(student['Future Fam group'])
+        if fg_num ==-1:
+            continue
+        
+        new_student = Student(idxy, name=name, year=year, sc_leader=sc_leader, maturity = -1, fg_num=(fg_num-1), female=(student['Gender'] == "Female"), discipler=student['Who is your D-Group Leader? If you have multiple, only choose one.'])
         student_dict[name] = new_student
+        idxy +=1
 
         #Create Connection Matrix
         friends = []
-        i = 23
+        i = 24
         end = False
         while i < 33 and end is False:
             column_name = "Unnamed: " + str(i)
@@ -64,6 +68,6 @@ def create_conn_mat(student_dict, friends_dict):
             #     print(name)
     return matched_students
 
-student_dict, friends_dict = parse_spread_sheet_create_dicts("SurveyResponse_3_15.csv")
-matched_students = create_conn_mat(student_dict, friends_dict)
-conn_mat = pd.DataFrame(matched_students)
+# student_dict, friends_dict = parse_spread_sheet_create_dicts("SurveyResponse_3_21.csv")
+# matched_students = create_conn_mat(student_dict, friends_dict)
+# conn_mat = pd.DataFrame(matched_students)
